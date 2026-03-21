@@ -76,10 +76,12 @@ server.delete('/users/:id', async (request, reply) => {
     }
 });
 
-server.listen({ port: 3333 }, (err, address) => {
-        if (err) {
-            console.error(err);
-            process.exit(1);
-        }
-        console.log(`Server listening at ${address}`);
-    });
+const port = Number(process.env.PORT) || 3333;
+
+server.listen({ port }, (err, address) => {
+    if (err) {
+        console.error(err);
+        process.exit(1);
+    }
+    console.log(`Server listening at ${address}`);
+});
